@@ -1,0 +1,11 @@
+<h2>Title: <%= @post.title %></h2>
+<h6>Submitted by: <%=@post.user.name %></h6>
+<hr>
+<h6>Body: <br><%= @post.body %></h6>
+<hr>
+<h6>Comments:</h6>
+<% @post.user.comments.each do |comment| %>
+	<ol>
+		<li><%= comment.body %> - <%= comment.user.name %></li>
+	</ol>
+<% end %>	
