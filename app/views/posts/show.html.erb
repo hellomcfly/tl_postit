@@ -4,8 +4,8 @@
 <h6>Body: <br><%= @post.body %></h6>
 <hr>
 <h6>Comments:</h6>
-<% @post.user.comments.each do |comment| %>
-	<ol>
+<ol>
+	<% @comments.each do |comment| %>
 		<li><%= comment.body %> - <%= comment.user.name %></li>
-	</ol>
-<% end %>	
+	<% end %>	
+</ol>

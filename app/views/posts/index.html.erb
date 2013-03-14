@@ -1,6 +1,6 @@
 <h2>Choose your post to view:</h2>
-<ul>
+<ol>
 	<% @posts.each do |post| %>
 		<li><%= link_to post.title, "/posts/#{post.id}" %> - <%= post.user.name %></li>
 	<% end %>
-</ul>
+</ol>
