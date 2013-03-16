@@ -1,0 +1,8 @@
+<h2>User: <%= @user.name %></h2>
+<h6>Member since: <%=@user.created_at %></h6>
+<h6>All User Comments:</h6>
+<ol>
+	<% @comments.each do |comment| %>
+		<li><%= comment.body %> - <%= link_to comment.post.title, "/posts/#{comment.post.id}" %></li>
+	<% end %>	
+</ol>

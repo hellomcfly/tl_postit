@@ -1,6 +1,16 @@
 <h2>Choose your post to view:</h2>
-<ol>
-	<% @posts.each do |post| %>
-		<li><%= link_to post.title, "/posts/#{post.id}" %> - <%= post.user.name %></li>
+<table border = "1">
+	<tr>
+		<th>Post Title</th>
+		<th>User Name</th>
+	</tr>
+	<tr>
+		<% @posts.each do |post| %>
+			<td><%= link_to post.title, "/posts/#{post.id}" %></td>
+			<td><%= link_to post.user.name, "/users/#{post.user.id}" %></td>
+	</tr>
 	<% end %>
-</ol>
+</table>
+
+<br>
+<h4>Click <a href="/users">here</a> to see all users.</h4>
