@@ -1,5 +1,12 @@
 <h2>User: <%= @user.name %></h2>
 <h6>Member since: <%=@user.created_at %></h6>
+<h6>All User Posts:</h6>
+<ol>
+	<% @posts.each do |post| %>
+		<li><%= link_to post.title, "/post/#{post.id}"%></li>
+	<% end %>	
+</ol>
+<hr>
 <h6>All User Comments:</h6>
 <ol>
 	<% @comments.each do |comment| %>

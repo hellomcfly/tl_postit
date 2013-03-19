@@ -1,7 +1,9 @@
 <h2>Title: <%= @post.title %></h2>
-<h6>Submitted by: <%=@post.user.name %></h6>
+<h6>Submitted by: <%= link_to @post.user.name, "/users/#{@post.user.id}" %></h6>
 <hr>
 <h6>Body: <br><%= @post.body %></h6>
+<hr>
+<%= link_to "Leave a Comment", new_comment_path, class: "btn btn-primary" %>
 <hr>
 <h6>Comments:</h6>
 <ol>

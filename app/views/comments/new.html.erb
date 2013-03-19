@@ -1,0 +1,24 @@
+<h3>It's your comment, so make it personal. </h3>
+
+<% if @comment.errors.any? %>
+	<div class = "alert alert=error">
+		<%= comment.errors.each do |err| %>
+			<%= err %> <br>
+		<% end %>
+	</div>
+<% end %>
+
+
+
+<%= form_for @comment do |f| %>
+	<%= f.label :body %>
+	<%= f.text_area :body, rows: 5 %>
+	<br>
+	<%= f.label "Post" %>
+	<%= collection_select(:comment, :post_id, @posts, :id, :title) %>
+	<%= f.submit class: "btn btn-primary" %>
+	<br>
+	<%= f.label "User" %>
+	<%= collection_select(:comment, :user_id, @users, :id, :name) %>
+	<%= f.submit class: "btn btn-primary" %>
+<% end %>
