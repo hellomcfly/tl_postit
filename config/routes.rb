@@ -1,9 +1,12 @@
 Postit::Application.routes.draw do
   root to: 'posts#index'
 
-  resources :posts, only: [:index, :show, :create, :new]
+  resources :posts, only: [:index, :show, :create, :new] do
+    resources :comments, only: [:create]
+  end
+
   resources :users, only: [:index, :show]
-  resources :comments, only: [:create, :new]
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

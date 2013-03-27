@@ -1,22 +1,17 @@
 class CommentsController < ApplicationController
 
-  def new
-  	@comment = Comment.new
-    @posts = Post.all
+    def create
+    @post = Post.find(params[:post_id])
     @users = User.all
-  end
-
-  def create
-    @posts = Post.all
-    @users = User.all    
   	@comment = Comment.new(params[:comment])
+    @comment.post_id = @post.id
 
   	if @comment.save
   		flash[:notice] = "Your comment was created."
-  		redirect_to posts_path
+  		redirect_to posts_path(@post)
   	else
   		@comment.errors
-  		render 'new'
+  		render 'posts/show'
   	end
   end
 

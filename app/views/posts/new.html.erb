@@ -1,14 +1,6 @@
 <h3>It's your post, so make it personal. </h3>
 
-<% if @post.errors.any? %>
-	<div class = "alert alert=error">
-		<%= post.errors.each do |err| %>
-			<%= err %> <br>
-		<% end %>
-	</div>
-<% end %>
-
-
+<%= render 'shared/errors', obj: @post %>
 
 <%= form_for @post do |f| %>
 	<%= f.label :title %>
